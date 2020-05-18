@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-complete-guide",
+  "version": "1.0.0",
+  "description": "Nodejs complete guide course, express, mongodb hands on",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paru429/nodejs-complete-guide.git"
+  },
+  "author": "Parvathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paru429/nodejs-complete-guide/issues"
+  },
+  "homepage": "https://github.com/paru429/nodejs-complete-guide#readme",
+  "devDependencies": {
+    "colors": "^1.4.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
