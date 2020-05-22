@@ -3,8 +3,9 @@ const colors = require('colors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const errorsController = require('./controllers/errors');
 // const expressHbs = require('express-handlebars');
 // const {rootDir} = require('./util/helpers');
 
@@ -34,12 +35,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(shopRoutes);
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 
-app.use((req, res) => {
-  res.status(404).render('404', {pageTitle: 'Page Not Found'});
-  // res.status(404).sendFile(path.join(rootDir, 'views', 'html', '404.html'));
-});
+app.use(errorsController.get404);
 
 //We can start and create server with this line alone
 // app.listen(port, () => console.log(colors.green('Hola::************starting server**************', port)));
