@@ -8,11 +8,12 @@ const p = path.join(
 );
 
 const getProductsFromFile = cb => {
-  fs.readFile(p, (err, data) => {
+  fs.readFile(p, (err, fileContent) => {
     if (err) {
       cb([]);
     } else {
-      cb(JSON.parse(data));
+      // fileContent.toString() ? cb(JSON.parse(fileContent)) : cb([]);
+      fileContent.length > 0 ? cb(JSON.parse(fileContent)) : cb([]);
     }
   });
 };
@@ -25,9 +26,7 @@ module.exports = class Product {
   save() {
     getProductsFromFile(products => {
       products.push(this);
-      fs.writeFile(p, JSON.stringify(products), err => {
-        console.log(err);
-      });
+      fs.writeFile(p, JSON.stringify(products), err => {});
     });
   }
 
