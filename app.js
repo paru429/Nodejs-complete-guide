@@ -15,7 +15,6 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views/ejs');
 
-
 // default views will be /view that doesnt need to be mentioned
 // app.engine(
 //   'hbs',
